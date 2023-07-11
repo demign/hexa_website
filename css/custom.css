@@ -1,0 +1,41 @@
+.wrapper {
+  width: 100%;
+  height: auto;
+}
+
+/*
+---------------------------------------------
+Header Style
+---------------------------------------------
+*/
+
+header {
+  width: 100%;
+  height: auto;
+  padding: 1.25rem 0;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .navi {
+  display: flex;
+  column-gap: var(--el-s-interval);
+}
+/* header 안에 자식인 navi가 한개밖에 없기때문에 생략 가능. 여러개가 있다면 하나하나 >로 하위 표시해서 작성해야함*/
+
+header .navi a {
+  font-weight: 600;
+  font-size: var(--f-n-size);
+  letter-spacing: 1px; /* 글자와 글자 사이의 간격*/
+  color: var(--f-m-color);
+  transition: all 0.4s;
+}
+
+header .navi a:hover,
+header .navi li.active a {
+  color: var(--f-g-color);
+}

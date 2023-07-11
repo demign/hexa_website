@@ -27,3 +27,12 @@ Container - fit center element (중앙정렬)
   height: auto;
   margin: auto;
 }
+
+/*
+---------------------------------------------
+Dot Bottom
+---------------------------------------------
+*/
+.dot-bottom {
+  border-bottom: 2px dotted #eee;
+}
