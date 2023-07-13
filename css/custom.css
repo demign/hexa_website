@@ -39,3 +39,130 @@ header .navi a:hover,
 header .navi li.active a {
   color: var(--f-g-color);
 }
+
+/*
+---------------------------------------------
+Hero Section Style
+---------------------------------------------
+*/
+
+.hero {
+  padding: 2.5rem 0;
+}
+
+.hero .container {
+  display: flex;
+  column-gap: 0.9375rem; /*15px. 좌우 갭 - rowgap은 상하 갭, 그냥 갭은 상하좌우 갭*/
+}
+
+.hero .container img {
+  width: 100%;
+  height: 100%;
+}
+/*오른쪽 왼쪽 이미지 높이 딱 맞추기*/
+
+.hero .container .left-side,
+.hero .container .right-side {
+  width: 50%;
+  position: relative;
+}
+/*부모 포지션 설정*/
+
+.hero .container .right-side {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9375rem;
+}
+
+.hero .container .right-side > div {
+  width: calc(50% - 0.4688rem);
+  position: relative;
+}
+
+.hero .left-side .inside-txt {
+  position: absolute;
+  color: #fff; /* a 태그, input 태그 글씨는 색상 상속 안됨(따로 지정 필요)*/
+  width: 85%;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%); /*left 50%한 후 중앙으로 보내기 위해*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero .left-side .inside-txt h4 {
+  font-size: 3.25rem;
+  font-weight: 700; /* 웹폰트 종류임 */
+}
+
+.hero .left-side .inside-txt span {
+  font-style: italic;
+  font-weight: 400;
+  margin: 0.875rem 0 1.875rem;
+}
+
+.hero .right-side .inside-grid-txt {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 0.9375rem;
+  color: #fff;
+}
+
+.hero .right-side .inside-grid-txt h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.hero .right-side .inside-grid-txt span {
+  font-style: italic;
+}
+
+.hero .right-side .hover-box {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  background: rgba(
+    42,
+    42,
+    42,
+    0.9
+  ); /* a(알파값)이 투명도이며, 자식요소에게 상속 안됨*/
+  color: #fff;
+  z-index: 999; /* static이 아닌 포지션 요소가 겹쳤을 때 높은 숲자가 위로 올라감(숫자값은 임의로)*/
+  _opacity: 0.5; /* 투명도 조절 : 0~1 사이의 값 - 자식에게 상속됨 (배경에만 투명도를 주고싶다면 배경 색상을 rgb로 따로 지정해줘야함) */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 중복사용이 불가능해 한번에 적어줘야함*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* display~ justify 4줄은 안에 요소(텍스트)를 중앙으로 보내주는 거*/
+  padding: 0.75rem;
+  opacity: 0; /* 사라지는 효과로 사용할 경우 요소는 그대로 남고 보이지 않게 된다. 이럴 경우 visibility 속성을 hidden, visible로 변경하며 이용한다*/
+  visibility: hidden;
+  /*눈에서 요소를 없애는 법 : opacity: 0;는 가시적으로 안보여주는거지 요소가 사라지는것은 아님 + visibility: hidden;을 추가로 작성해주면 그 공간이 공백으로 되어있지만 요소가 잡히지는 않음 / display: none;은 요소까지 없앰 */
+  transition: all 0.4s;
+}
+
+.hero .container .right-side > div:hover .hover-box {
+  opacity: 1;
+  visibility: visible;
+  /*div에 마우스를 올렸을 때 그자식인 호버 박스가 변하는거*/
+}
+
+.hero .right-side .hover-box h4 {
+  font-size: 1.25rem;
+}
+
+.hero .right-side .hover-box span {
+  text-align: center;
+  font-size: 0.875rem;
+  padding: 0.75rem 0;
+  font-weight: 300;
+}
